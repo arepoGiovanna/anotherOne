@@ -126,8 +126,9 @@ public class testFoodelivery{
                             System.out.println("\nPlease update your menu.");
                             String doofIn = scan.nextLine();
                             String doofIn2 = scan.nextLine();
-                            int doofIn3 = scan.nextInt();
-                            r.updateMenuDoofFood(doofIn, doofIn2, doofIn3);
+                            String doofIn3 = scan.nextLine();
+                            double d = Double.parseDouble(doofIn3);
+                            r.updateMenuDoofFood(doofIn, doofIn2, d);
 
                             r.viewMenuDF();
                         }
