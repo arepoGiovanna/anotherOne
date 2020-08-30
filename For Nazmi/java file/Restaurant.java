@@ -14,20 +14,21 @@ public class Restaurant {
         //super(foodId, foodName, foodPrice);
     }  //Default constructor
 
-    public Restaurant(String foodId, String foodName, int foodPrice, boolean orderStatus){
+    public Restaurant(String foodId, String foodName, double foodPrice, boolean orderStatus){
         //super(foodId, foodName, foodPrice);
         this.status = orderStatus;
     }
 
-    public void updateMenuDoofFood(String foodId, String foodName, int foodPrice){
+    public void updateMenuDoofFood(String foodId, String foodName, double foodPrice){
+        
         DoofFood.add(new FoodeliverMenu(foodId, foodName, foodPrice));
     }
 
-    public void updateMenuKrabbyFood(String foodId, String foodName, int foodPrice){
+    public void updateMenuKrabbyFood(String foodId, String foodName, double foodPrice){
         KrabbyFood.add(new FoodeliverMenu(foodId, foodName, foodPrice));
     }
 
-    public void updateMenuBatFood(String foodId, String foodName, int foodPrice){
+    public void updateMenuBatFood(String foodId, String foodName, double foodPrice){
         BatFood.add(new FoodeliverMenu(foodId, foodName, foodPrice));
     }
 
