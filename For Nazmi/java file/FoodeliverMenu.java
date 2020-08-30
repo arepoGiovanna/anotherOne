@@ -5,7 +5,7 @@ import java.util.*;
 public class FoodeliverMenu{
     protected String foodId;
     protected String foodName;
-    protected int foodPrice;
+    protected double foodPrice;
 
     //protected boolean status
 //    protected String Selection;
@@ -13,7 +13,7 @@ public class FoodeliverMenu{
 
     public FoodeliverMenu(){ }
 
-    public FoodeliverMenu(String foodId, String foodName, int foodPrice){
+    public FoodeliverMenu(String foodId, String foodName, double foodPrice){
         this.foodId = foodId;
         this.foodName = foodName;
         this.foodPrice = foodPrice;
@@ -34,6 +34,7 @@ public class FoodeliverMenu{
         ArrayList<Double> PriceDoofFood = new ArrayList<>();
         ArrayList<Double> PriceKrabbyFood = new ArrayList<>();
         ArrayList<Double> PriceBatFood = new ArrayList<>();
+        Restaurant
 
         codeDoofFood.add("DE1");     // E means Eat; D means Drink
         codeDoofFood.add("DE2");
@@ -50,8 +51,16 @@ public class FoodeliverMenu{
         PriceKrabbyFood.add(100.99);  //Spongebob reference
         PriceBatFood.add(15.46);
 
+        if(chooseRestaurant == 1){
+            codeDoofFood.add(foodId);
+            nameDoofFood.add(foodName);
+            PriceDoofFood.add(foodPrice);
+        }
+
 
         if(chooseRestaurant == 1){
+            
+
             
             for(int i = 0; i < nameDoofFood.size() && i < codeDoofFood.size() && i < PriceDoofFood.size(); i++){
                 System.out.print(codeDoofFood.get(i) + " ");    
@@ -100,6 +109,12 @@ public class FoodeliverMenu{
         PriceDoofDrink.add(7.00);
         PriceKrabbyDrink.add(61.50);
         PriceBatDrink.add(5.00); 
+
+        if(chooseRestaurant == 1){
+            codeDoofFood.add(foodId);
+            nameDoofFood.add(foodName);
+            PriceDoofDrink.add(foodPrice);
+        }
         if(chooseRestaurant == 1){
             
             for(int i = 0; i < nameDoofDrink.size() && i < codeDoofDrink.size(); i++){
