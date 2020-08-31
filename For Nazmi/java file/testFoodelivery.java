@@ -5,10 +5,15 @@
 
 
 import java.util.*;
+//import java.io.Printwriter;
 
 public class testFoodelivery{
-    public static void main(String[] args){
+    public static void main(String[] args) throws java.io.IOException{
+        java.io.File file = new java.io.File("testing.txt");
+        if(file.exists()){
+        }
 
+        java.io.PrintWriter output = new java.io.PrintWriter(file);
         FoodeliverMenu f = new FoodeliverMenu();
         FoodeliverMenu t = new FoodeliverMenu();
         Restaurant r = new Restaurant();
@@ -35,8 +40,27 @@ public class testFoodelivery{
             System.out.print("> ");
             int chooseAction = scan.nextInt();
             switch(chooseAction){
-                case 1: System.out.println("=====================================");
-                        break;
+                case 1: System.out.print("\n");
+                System.out.println("Doofenshmirtz Evil Restaurant");
+                System.out.println("===============================");
+                System.out.println("||           Food            ||");
+                System.out.println("===============================");
+                r.showDoofFood(chooseAction);
+                
+                System.out.print("\n");
+                System.out.println("Krusty Krab");
+                System.out.println("===============================");
+                System.out.println("||           Food            ||");
+                System.out.println("===============================");
+                r.showKrabbyFood(chooseAction);
+
+                System.out.print("\n");
+                System.out.println("Batman's Teppanyaki");
+                System.out.println("===============================");
+                System.out.println("||           Food            ||");
+                System.out.println("===============================");
+                r.showBatFood(chooseAction);
+                break;
                 case 2: System.out.println("Still in development");
                         break;
                 case 3: System.out.println("Still in development");
@@ -134,19 +158,25 @@ public class testFoodelivery{
                         int chooseAction3 = scan.nextInt();
                         scan.nextLine();
                         switch(chooseAction3){
-                            case 1: System.out.println("===============================");
+                            case 1: r.showDoofFood(chooseAction3);
+                                    System.out.println("===============================");
                                     System.out.print("Enter code: ");
                                     String codeDoof = scan.nextLine();
                                     System.out.print("Enter food/drink name: ");
                                     String DoofFood = scan.nextLine();
                                     System.out.print("Enter price: RM ");
                                     double doofPrice = scan.nextDouble();
-            
+
+                                    output.print(codeDoof);
+                                    output.print(DoofFood);
+                                    output.print(doofPrice);
                                     r.addnewDoofMenu(codeDoof, DoofFood, doofPrice);
                                     r.showDoofFood(chooseAction3);
+                                    output.close();
                                     break;
 
-                            case 2: System.out.println("===============================");
+                            case 2: r.showKrabbyFood(chooseAction3);
+                                    System.out.println("===============================");
                                     System.out.print("Enter code: ");
                                     String codeKrabs = scan.nextLine();
                                     System.out.print("Enter food/drink name: ");
@@ -157,7 +187,8 @@ public class testFoodelivery{
                                     r.addnewKrabbyMenu(codeKrabs, KrabsFood, KrabsPrice);
                                     r.showKrabbyFood(chooseAction3);
                                     break;
-                            case 3: System.out.println("===============================");
+                            case 3: r.showBatFood(chooseAction3);
+                                    System.out.println("===============================");
                                     System.out.print("Enter code: ");
                                     String codeBat = scan.nextLine();
                                     System.out.print("Enter food/drink name: ");
@@ -247,7 +278,7 @@ public class testFoodelivery{
                                     System.out.print("Please enter new food name: ");
                                     
                                     String DoofFood = scan.nextLine();
-                                    System.out.print("Please enter new food price: ");
+                                    System.out.print("Please enter new food price: RM ");
                                     double doofPrice = scan.nextDouble();
 
                                     System.out.println("\n");
@@ -257,7 +288,7 @@ public class testFoodelivery{
 
 
                             case 2:System.out.println("=============================================");
-                                    r.showDoofFood(userInput);
+                                    r.showKrabbyFood(userInput);
                                     System.out.println("=============================================");
                                     System.out.println("Please choose one of the menu items in there.");
                                     System.out.println("=============================================");
@@ -269,7 +300,7 @@ public class testFoodelivery{
                                     System.out.print("Please enter new food name: ");
                                     
                                     String KrabsFood = scan.nextLine();
-                                    System.out.print("Please enter new food price: ");
+                                    System.out.print("Please enter new food price: RM ");
                                     double KrabsPrice = scan.nextDouble();
 
                                     System.out.println("\n");
@@ -277,7 +308,7 @@ public class testFoodelivery{
                                     r.showKrabbyFood(userInput);                                  
                                     break;
                             case 3:System.out.println("=============================================");
-                                    r.showDoofFood(userInput);
+                                    r.showBatFood(userInput);
                                     System.out.println("=============================================");
                                     System.out.println("Please choose one of the menu items in there.");
                                     System.out.println("=============================================");
@@ -285,15 +316,15 @@ public class testFoodelivery{
                                     index = scan.nextInt();
                                     System.out.print("Please enter new code: ");
                                     scan.nextLine();
-                                    String codeKrabs = scan.nextLine();
+                                    String codeBat = scan.nextLine();
                                     System.out.print("Please enter new food name: ");
                                     
-                                    String KrabsFood = scan.nextLine();
-                                    System.out.print("Please enter new food price: ");
-                                    double KrabsPrice = scan.nextDouble();
+                                    String batFood = scan.nextLine();
+                                    System.out.print("Please enter new food price: RM");
+                                    double batPrice = scan.nextDouble();
 
                                     System.out.println("\n");
-                                    r. updateBatMenu(index, codeKrabs, KrabsFood, KrabsPrice);
+                                    r. updateBatMenu(index, codeBat, batFood, batPrice);
                                     r.showBatFood(userInput);                                  
                                     break;
                             default:System.out.println("Please choose an item to delete");
